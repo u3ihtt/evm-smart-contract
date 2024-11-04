@@ -1,0 +1,24 @@
+type DepositInfo = record {
+  depositor : principal;
+  destination : text;
+  token : principal;
+  deposit_id : text;
+  nonce : nat;
+  timestamp : nat;
+  amount : nat;
+};
+type Result = variant { Ok : nat; Err : text };
+service : (principal, principal, principal) -> {
+  add_token_to_whitelist : (principal) -> ();
+  change_owner : (principal) -> ();
+  deposit_token : (nat, principal, text, text) -> (Result);
+  get_admin : () -> (principal) query;
+  get_deposit_counter : () -> (nat) query;
+  get_deposit_info_by_nonce : (nat, nat) -> (vec DepositInfo) query;
+  get_fund_receiver : () -> (principal) query;
+  get_owner : () -> (principal) query;
+  get_whitelist : () -> (vec principal) query;
+  remove_token_from_whitelist : (principal) -> ();
+  set_admin : (principal) -> ();
+  set_fund_receiver : (principal) -> ();
+}
