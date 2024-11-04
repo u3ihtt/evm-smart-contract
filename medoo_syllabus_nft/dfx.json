@@ -1,0 +1,17 @@
+{
+  "canisters": {
+    "medoo_syllabus_nft_backend": {
+      "candid": "src/medoo_syllabus_nft_backend/medoo_syllabus_nft_backend.did",
+      "package": "medoo_syllabus_nft_backend",
+      "type": "rust"
+    }
+  },
+  "defaults": {
+    "build": {
+      "args": "",
+      "packtool": ""
+    }
+  },
+  "output_env_file": ".env",
+  "version": 1
+}

@@ -1,0 +1,5 @@
+[workspace]
+members = [
+    "src/medoo_syllabus_nft_backend"
+]
+resolver = "2"
