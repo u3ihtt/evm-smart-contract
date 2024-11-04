@@ -1,3 +1,54 @@
-service : {
-    "greet": (text) -> (text) query;
+type ConstrainedError = variant { Unauthorized };
+type Error = variant { ZeroAddress; InvalidTokenId; Unauthorized; Other };
+type InterfaceId = variant {
+  Burn;
+  Mint;
+  Approval;
+  TransactionHistory;
+  TransferNotification;
+};
+type LogoResult = record { data : text; logo_type : text };
+type MetadataPart = record {
+  data : blob;
+  key_val_data : vec record { text; MetadataVal };
+  purpose : MetadataPurpose;
+};
+type MetadataPurpose = variant { Preview; Rendered };
+type MetadataVal = variant {
+  Nat64Content : nat64;
+  Nat32Content : nat32;
+  Nat8Content : nat8;
+  NatContent : nat;
+  Nat16Content : nat16;
+  BlobContent : blob;
+  TextContent : text;
+};
+type MintResult = record { id : nat; token_id : nat64 };
+type Result = variant { Ok : nat; Err : Error };
+type Result_1 = variant { Ok : MintResult; Err : ConstrainedError };
+type Result_2 = variant { Ok : principal; Err : Error };
+type Result_3 = variant { Ok; Err : Error };
+service : () -> {
+  approveDip721 : (principal, nat64) -> (Result);
+  balanceOfDip721 : (principal) -> (nat64) query;
+  burnDip721 : (nat64) -> (Result);
+  isApprovedForAllDip721 : (principal) -> (bool) query;
+  is_custodian : (principal) -> (bool) query;
+  mintDip721 : (principal, vec MetadataPart, blob) -> (Result_1);
+  nameDip721 : () -> (text) query;
+  ownerOfDip721 : (nat64) -> (Result_2) query;
+  safeTransferFromDip721 : (principal, principal, nat64) -> (Result);
+  safeTransferFromNotifyDip721 : (principal, principal, nat64, blob) -> (
+      Result,
+    );
+  setApprovalForAllDip721 : (principal, bool) -> (Result);
+  set_custodian : (principal, bool) -> (Result_3);
+  set_logo : (opt LogoResult) -> (Result_3);
+  set_name : (text) -> (Result_3);
+  set_symbol : (text) -> (Result_3);
+  supportedInterfacesDip721 : () -> (vec InterfaceId) query;
+  symbolDip721 : () -> (text) query;
+  totalSupplyDip721 : () -> (nat64) query;
+  transferFromDip721 : (principal, principal, nat64) -> (Result);
+  transferFromNotifyDip721 : (principal, principal, nat64, blob) -> (Result);
 }
