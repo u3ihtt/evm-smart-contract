@@ -1,0 +1,5 @@
+[workspace]
+members = [
+    "src/vault-withdraw-backend"
+]
+resolver = "2"

@@ -1,0 +1,17 @@
+{
+  "canisters": {
+    "vault-withdraw-backend": {
+      "candid": "src/vault-withdraw-backend/vault-withdraw-backend.did",
+      "package": "vault-withdraw-backend",
+      "type": "rust"
+    }
+  },
+  "defaults": {
+    "build": {
+      "args": "",
+      "packtool": ""
+    }
+  },
+  "output_env_file": ".env",
+  "version": 1
+}

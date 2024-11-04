@@ -1,0 +1,17 @@
+type Result = variant { Ok : nat; Err : text };
+type WithdrawInfo = record {
+  token : principal;
+  recipient : principal;
+  nonce : nat;
+  timestamp : nat;
+  amount : nat;
+};
+service : (principal, principal) -> {
+  change_owner : (principal) -> ();
+  get_admin : () -> (principal) query;
+  get_owner : () -> (principal) query;
+  get_withdraw_counter : () -> (nat) query;
+  get_withdraw_info_by_nonce : (nat, nat) -> (vec WithdrawInfo) query;
+  set_admin : (principal) -> ();
+  withdraw_token : (nat, principal, principal, text) -> (Result);
+}
