@@ -1,0 +1,41 @@
+type AudioMetadata = record {
+  url : text;
+  duration : nat64;
+  play_start_at : nat64;
+  questions : vec text;
+  play_end_at : nat64;
+};
+type Course = record {
+  metadata : MetadataLanguage;
+  avatar_url : text;
+  name : MetadataLanguage_1;
+  slug : text;
+  expectations_and_goals : MetadataLanguage_1;
+  description : MetadataLanguage_1;
+  course_id : nat64;
+  syllabus_id : nat64;
+  study_type : text;
+};
+type FileMetadata = record {
+  url : text;
+  size : nat64;
+  file_type : text;
+  original_name : text;
+  is_image : bool;
+};
+type MetaData = record { scorm : text };
+type MetadataContent = variant {
+  File : FileMetadata;
+  Audio : AudioMetadata;
+  Video : AudioMetadata;
+  SCORM : SCORMMetadata;
+};
+type MetadataLanguage = record { en : MetadataContent; vn : MetadataContent };
+type MetadataLanguage_1 = record { en : text; vn : text };
+type NFT = record { token_id : nat64; course : Course };
+type Result = variant { Ok : nat64; Err : text };
+type SCORMMetadata = record { url : text; meta : MetaData; media_id : text };
+service : {
+  get_nft : (nat64) -> (opt NFT) query;
+  mint_nft : (Course) -> (Result);
+}
