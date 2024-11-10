@@ -1,0 +1,35 @@
+{
+  "devDependencies": {
+    "@biomejs/biome": "^1.9.4",
+    "@nomicfoundation/hardhat-chai-matchers": "^2.0.3",
+    "@nomicfoundation/hardhat-ethers": "^3.0.8",
+    "@nomicfoundation/hardhat-network-helpers": "^1.0.10",
+    "@nomicfoundation/hardhat-verify": "^2.0.11",
+    "@nomiclabs/hardhat-etherscan": "^3.1.8",
+    "@typechain/ethers-v6": "^0.5.1",
+    "@typechain/hardhat": "^9.1.0",
+    "@types/mocha": "^10.0.9",
+    "chai": "^4.5.0",
+    "hardhat": "^2.19.1",
+    "hardhat-gas-reporter": "^1.0.10",
+    "husky": "^9.1.6",
+    "solidity-coverage": "^0.8.13",
+    "ts-node": "^10.9.1",
+    "typechain": "^8.3.2",
+    "typescript": "^5.3.2"
+  },
+  "dependencies": {
+    "@nomicfoundation/hardhat-toolbox": "^4.0.0",
+    "@openzeppelin/contracts": "^4.9.3",
+    "@openzeppelin/contracts-upgradeable": "^4.9.3",
+    "dotenv": "^16.3.1",
+    "ethers": "^6.13.4"
+  },
+  "scripts": {
+    "prepare": "husky",
+    "deploy": "node scripts/deploy.js",
+    "test": "npx hardhat test",
+    "compile": "npx hardhat compile",
+    "clean": "npx hardhat clean"
+  }
+}

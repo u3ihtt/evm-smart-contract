@@ -1,0 +1,14 @@
+{
+  "scripts": {
+    "ProxyAdmin": "npx hardhat run scripts/proxy-admin/deployProxyAdmin.ts --network",
+    "MedooToken": "npx hardhat run scripts/token/deployToken.ts --network",
+    "VaultDeposit": "npx hardhat run scripts/vault/deployVaultDeposit.ts --network",
+    "VaultWithdraw": "npx hardhat run scripts/vault/deployVaultWithdraw.ts --network",
+    "MedooCourseNFT": "npx hardhat run scripts/medoo-nft/deployMedooCourseNFT.ts --network",
+    "MedooID": "npx hardhat run scripts/medoo-nft/deployMedooID.ts --network",
+    "MedooNFT": "npx hardhat run scripts/medoo-nft/deployMedooNFT.ts --network",
+    "MedooSyllabusNFT": "npx hardhat run scripts/medoo-nft/deployMedooSyllabusNFT.ts --network",
+    "MedooLearningMaterial": "npx hardhat run scripts/courses/deployMedooLearningMaterial.ts --network",
+    "MedooCourseUser": "npx hardhat run scripts/courses/deployMedooCourseUser.ts --network"
+  }
+}
